@@ -41,4 +41,8 @@ public class OperationsHandler {
                 .address(user.getAddress())
                 .build(), HttpStatus.OK);
     }
+
+    public ResponseEntity<String> deleteUser(String userName) {
+        return null;
+    }
 }
