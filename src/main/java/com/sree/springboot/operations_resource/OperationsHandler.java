@@ -45,4 +45,8 @@ public class OperationsHandler {
     public ResponseEntity<String> deleteUser(String userName) {
         return operationsCommandService.deleteUser(userName);
     }
+
+    public ResponseEntity<String> administerUser(UserRequest userRequest) {
+        return null;
+    }
 }
