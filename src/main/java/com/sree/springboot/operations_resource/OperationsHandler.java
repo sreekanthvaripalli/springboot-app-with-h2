@@ -23,4 +23,8 @@ public class OperationsHandler {
                 .address(userRequest.getAddress())
                 .build();
     }
+
+    public ResponseEntity<UserResponse> getUser(String userName) {
+        return null;
+    }
 }

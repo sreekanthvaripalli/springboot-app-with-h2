@@ -3,8 +3,10 @@ package com.sree.springboot.operations_resource;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,5 +20,12 @@ public class OperationsController {
             @RequestBody UserRequest userRequest
     ){
         return operationsHandler.saveDetail(userRequest);
+    }
+
+    @GetMapping(value = "/getUser")
+    public ResponseEntity<UserResponse> getUser(
+            @RequestParam String userName
+    ) {
+        return operationsHandler.getUser(userName);
     }
 }
