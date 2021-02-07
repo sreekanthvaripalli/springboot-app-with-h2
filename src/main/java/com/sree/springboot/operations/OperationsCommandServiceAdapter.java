@@ -17,4 +17,9 @@ public class OperationsCommandServiceAdapter implements OperationsCommandService
     public ResponseEntity<String> deleteUser(String userName) {
         return operationsCommandRepository.deleteUser(userName);
     }
+
+    @Override
+    public ResponseEntity<String> administerUSer(User user) {
+        return operationsCommandRepository.administerUser(user);
+    }
 }

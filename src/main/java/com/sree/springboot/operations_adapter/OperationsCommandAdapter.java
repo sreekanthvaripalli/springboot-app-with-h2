@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -38,5 +39,21 @@ public class OperationsCommandAdapter implements OperationsCommandRepository {
             log.info("exception so failed - return failure");
             return new ResponseEntity<>("Failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @Override
+    public ResponseEntity<String> administerUser(User user) {
+        //find user if available or not
+        List<User> existingUser = userJpaClient.findUserByName(user.getName());
+        if(existingUser.isEmpty()){
+            return new ResponseEntity<>("User not found in DB", HttpStatus.NOT_FOUND);
+        }
+        //Currently taking first record to update
+        user.setId(existingUser.get(0).getId());
+        User updatedUser = userJpaClient.save(user);
+        if (updatedUser != null) {
+            return new ResponseEntity<>("User detail updated in DB", HttpStatus.OK);
+        }
+        return ResponseEntity.of(Optional.of("Failed to update user details"));
     }
 }

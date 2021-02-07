@@ -47,6 +47,6 @@ public class OperationsHandler {
     }
 
     public ResponseEntity<String> administerUser(UserRequest userRequest) {
-        return null;
+        return operationsCommandService.administerUSer(getUser(userRequest));
     }
 }
