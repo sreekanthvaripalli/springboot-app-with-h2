@@ -12,4 +12,9 @@ public class OperationsCommandServiceAdapter implements OperationsCommandService
     public ResponseEntity<String> saveUser(User user) {
         return operationsCommandRepository.saveUser(user);
     }
+
+    @Override
+    public ResponseEntity<String> deleteUser(String userName) {
+        return operationsCommandRepository.deleteUser(userName);
+    }
 }

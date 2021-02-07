@@ -4,4 +4,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface OperationsCommandService {
     ResponseEntity<String> saveUser(User user);
+    ResponseEntity<String> deleteUser(String userName);
 }

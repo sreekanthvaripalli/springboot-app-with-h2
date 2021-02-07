@@ -43,6 +43,6 @@ public class OperationsHandler {
     }
 
     public ResponseEntity<String> deleteUser(String userName) {
-        return null;
+        return operationsCommandService.deleteUser(userName);
     }
 }
