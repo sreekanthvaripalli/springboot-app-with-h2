@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 CREATE TABLE USERDETAIL(
     id INT(10) NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -6,6 +8,6 @@ CREATE TABLE USERDETAIL(
 
     PRIMARY KEY(id)
     );
---
--- insert into user (name, age, address, passportNumber) values
--- ('sreekanth', 27, 'KKD', 'P12345'),('elvie', 27, 'PP', 'P12344');
+
+insert into USERDETAIL (name, age, address) values
+('sree', 27, 'KKD'),('elvie', 25, 'palawan');
