@@ -11,10 +11,11 @@ After server startup successfully, open your browser and access below url:
 
 below endpoints are exposed:
     
-    save user: /saveUser
-    get user: /getUser
-    administer user: /administerUser
-    delete user: /deleteUser
+    save user           : /saveUser
+    get user            : /getUser
+    get all users       : /getAllUsers
+    administer user     : /administerUser
+    delete user         : /deleteUser
 
 Access h2-console at: 
 
