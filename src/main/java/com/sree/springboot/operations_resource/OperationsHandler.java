@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 @AllArgsConstructor
 public class OperationsHandler {
@@ -34,12 +37,15 @@ public class OperationsHandler {
     }
 
     private ResponseEntity<UserResponse> getMappedResponse(User user) {
+        return new ResponseEntity<UserResponse>(getBuiltUser(user), HttpStatus.OK);
+    }
 
-        return new ResponseEntity<UserResponse>(UserResponse.builder()
+    private UserResponse getBuiltUser(User user) {
+        return UserResponse.builder()
                 .name(user.getName())
                 .age(user.getAge())
                 .address(user.getAddress())
-                .build(), HttpStatus.OK);
+                .build();
     }
 
     public ResponseEntity<String> deleteUser(String userName) {
@@ -48,5 +54,16 @@ public class OperationsHandler {
 
     public ResponseEntity<String> administerUser(UserRequest userRequest) {
         return operationsCommandService.administerUSer(getUser(userRequest));
+    }
+
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        ResponseEntity<List<User>> allUsers = operationsQueryService.getAllUsers();
+        ResponseEntity<?> responseEntity = allUsers.getStatusCodeValue() == 200 ? getUsersResponse(allUsers.getBody()) : allUsers;
+        return (ResponseEntity<List<UserResponse>>) responseEntity;
+    }
+
+    private ResponseEntity<List<UserResponse>> getUsersResponse(List<User> users) {
+        List<UserResponse> usersList = users.stream().map(this::getBuiltUser).collect(Collectors.toList());
+        return new ResponseEntity<>(usersList, HttpStatus.OK);
     }
 }

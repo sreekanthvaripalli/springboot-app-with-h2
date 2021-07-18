@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Api(tags = "To perform CRUD operations through microservices")
 @AllArgsConstructor
@@ -43,5 +45,11 @@ public class OperationsController {
             @RequestBody UserRequest userRequest
     ) {
         return operationsHandler.administerUser(userRequest);
+    }
+
+    @GetMapping(value = "/getAllUsers")
+    public ResponseEntity<List<UserResponse>> getAllUsers(
+    ) {
+        return operationsHandler.getAllUsers();
     }
 }
