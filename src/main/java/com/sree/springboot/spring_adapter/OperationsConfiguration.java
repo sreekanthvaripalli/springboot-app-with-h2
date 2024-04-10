@@ -6,8 +6,10 @@ import com.sree.springboot.operations.OperationsCommandServiceAdapter;
 import com.sree.springboot.operations.OperationsQueryRepository;
 import com.sree.springboot.operations.OperationsQueryService;
 import com.sree.springboot.operations.OperationsQueryServiceAdapter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 public class OperationsConfiguration {

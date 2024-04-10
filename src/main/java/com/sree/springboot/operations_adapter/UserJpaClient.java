@@ -1,7 +1,6 @@
 package com.sree.springboot.operations_adapter;
 
 import com.sree.springboot.operations.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
