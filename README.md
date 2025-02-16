@@ -7,7 +7,7 @@ Run the app using below command:
 
 After server startup successfully, open your browser and access below url:
 
-    http://localhost:8080/swagger-ui/
+    http://localhost:8080/swagger-ui/index.html
 
 below endpoints are exposed:
     
